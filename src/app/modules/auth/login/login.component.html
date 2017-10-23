@@ -1,0 +1,29 @@
+<div class="login-form">
+  <h3>Login</h3>
+  <div class="error-block error-block-form" *ngIf="formError">
+    <span>{{ formError }}</span>
+  </div>
+  <form #form="ngForm" (ngSubmit)="handleSubmit(form.value, form.valid)" novalidate>
+    <div class="form-control">
+      <label for="email">email</label>
+      <input type="text" name="email" id="email" placeholder="email" [ngModel] #email="ngModel" required email />
+      <div *ngIf="email.errors && (email.touched || submitted)" class="error-block">
+        <div class="error" *ngIf="email.errors?.required">This field is required</div>
+        <div class="error" *ngIf="email.errors?.email">Invalid email format</div>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="password">password</label>
+      <input type="password" name="password" id="password" placeholder="password" [ngModel] #password="ngModel" required pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,})"/>
+      <div *ngIf="password.errors && (password.touched || submitted)" class="error-block">
+        <div class="error" *ngIf="password.errors?.required">This field is required</div>
+        <div class="error" *ngIf="password.errors?.pattern">Password must be at least 6 characters long. Password requires at least one uppercase and one digit character.</div>
+      </div>
+    </div>
+    <div class="form-control form-inline">
+      <label for="remember">Rember me</label>
+      <input type="checkbox" name="remember" id="remember" [ngModel] />
+    </div>
+    <input type="submit" value="login" />
+  </form>
+</div>
