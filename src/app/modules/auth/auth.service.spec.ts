@@ -1,10 +1,3 @@
-/******************************************************************************
- * seerene(tm) - A framework for analyzing and visualizing complex software systems.
- * Copyright (C) 2005 - 2017 for all source codes:
- * seerene(tm) GmbH, Potsdam, Germany
- ******************************************************************************/
-
-
 import { Observable } from 'rxjs/Observable';
 import { TestBed } from '@angular/core/testing';
 
